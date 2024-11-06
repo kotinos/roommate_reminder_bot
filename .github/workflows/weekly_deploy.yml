@@ -3,7 +3,8 @@ name: Weekly Telegram Reminder
 on:
   schedule:
     - cron: '0 0 * * 0' # Run every Sunday at midnight
-
+  workflow_dispatch:
+  
 jobs:
   send-reminder:
     runs-on: ubuntu-latest

@@ -1,0 +1,23 @@
+name: Weekly Telegram Reminder
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Run every Sunday at midnight
+
+jobs:
+  send-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'your-node-version' # Replace with your desired Node.js version
+      - name: Install dependencies
+        run: npm install
+      - name: Run script
+        run: node index.js
+        env:
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_CHAT_ID }}

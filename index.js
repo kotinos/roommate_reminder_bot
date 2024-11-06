@@ -27,13 +27,8 @@ function getNextCleaner(area) {
       return null;
     }
 
-    // Get the first username
     const username = usernames.shift(); // Remove the first username from the array
-
-    // Rotate the usernames by moving the first username to the end
     usernames.push(username);
-
-    // Write the updated usernames back to the schedule file
     fs.writeFileSync(scheduleFilename, usernames.join(','));
 
     return username;

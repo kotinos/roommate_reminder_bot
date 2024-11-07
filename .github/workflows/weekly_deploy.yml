@@ -25,12 +25,12 @@ jobs:
         uses: OleksiyRudenko/gha-git-credentials@v2.1.2
         with:
           # Configure global git user name, email, password (default: false)
-          # global: # optional, default is false
-          # # <git-user-email@domain.com> (default: github-action@users.noreply.github.com)
+          global: aaronchanlin@gmail.com
+          # <git-user-email@domain.com> (default: github-action@users.noreply.github.com)
           # email: # optional, default is github-action@users.noreply.github.com
-          # # Git User Name (default: "GitHub Action")
-          # name: # optional, default is GitHub Action
-          # # GitHub Actor Username (default: github.actor)
+          # Git User Name (default: "GitHub Action")
+          name: kotinos
+          # GitHub Actor Username (default: github.actor)
           # actor: # optional, default is GITHUB_ACTOR
           # GitHub Token
           token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}

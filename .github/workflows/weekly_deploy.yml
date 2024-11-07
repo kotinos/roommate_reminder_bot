@@ -19,8 +19,24 @@ jobs:
         run: npm install
       - name: Run script
         run: node index.js
-             git add -A
-             git commit -m "Added files"
+      - name: Configure git credentials
+          # You may pin to the exact commit or the version.
+          # uses: OleksiyRudenko/gha-git-credentials@8bb1fe6d543b2233ef1856cd3b0181f5abbd4d6a
+        uses: OleksiyRudenko/gha-git-credentials@v2.1.2
+        with:
+          # Configure global git user name, email, password (default: false)
+          # global: # optional, default is false
+          # # <git-user-email@domain.com> (default: github-action@users.noreply.github.com)
+          # email: # optional, default is github-action@users.noreply.github.com
+          # # Git User Name (default: "GitHub Action")
+          # name: # optional, default is GitHub Action
+          # # GitHub Actor Username (default: github.actor)
+          # actor: # optional, default is GITHUB_ACTOR
+          # GitHub Token
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+      - name: Publish
+        run: git add .
+             git commit -m "Update schedules"
         env:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

@@ -10,15 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.16.1'
       - name: Install dependencies
         run: npm install
       - name: Run script
         run: node index.js
+        env:
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       - name: Configure git credentials
           # You may pin to the exact commit or the version.
           # uses: OleksiyRudenko/gha-git-credentials@8bb1fe6d543b2233ef1856cd3b0181f5abbd4d6a
@@ -39,6 +42,3 @@ jobs:
           git add .
           git commit -m "Update schedules"
           git push
-        env:
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

@@ -19,6 +19,8 @@ jobs:
         run: npm install
       - name: Run script
         run: node index.js
+             git add -A
+             git commit -m "Added files"
         env:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

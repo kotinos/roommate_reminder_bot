@@ -38,6 +38,7 @@ jobs:
         run: | 
           git add .
           git commit -m "Update schedules"
+          git push
         env:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

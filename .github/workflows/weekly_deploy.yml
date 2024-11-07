@@ -35,8 +35,9 @@ jobs:
           # GitHub Token
           token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
       - name: Publish
-        run: git add .
-             git commit -m "Update schedules"
+        run: | 
+          git add .
+          git commit -m "Update schedules"
         env:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
